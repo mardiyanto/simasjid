@@ -235,7 +235,7 @@ elseif ($_GET[module]=='hubungi'){ ?>
                         </div>
                         <h4 class="mb-3">Phone Number</h4>
                         <p class="mb-2"><?=$k[tahun]?></p>
-                        <a class="btn btn-primary px-4" href="tel:+0123456789">Call Now <i class="fa fa-arrow-right ms-2"></i></a>
+                        <a class="btn btn-primary px-4" href="tel:<?=$k[tahun]?>">Call Now <i class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -245,7 +245,7 @@ elseif ($_GET[module]=='hubungi'){ ?>
                         </div>
                         <h4 class="mb-3">Email Address</h4>
                         <p class="mb-2"><?=$k[alias]?></p>
-                        <a class="btn btn-primary px-4" href="mailto:info@example.com">Email Now <i class="fa fa-arrow-right ms-2"></i></a>
+                        <a class="btn btn-primary px-4" href="<?=$k[alias]?>">Email Now <i class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">

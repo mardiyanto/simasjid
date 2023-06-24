@@ -123,6 +123,7 @@
                     <p class="mb-4"><?=$k[isi]?></p>
               
                     <a class="btn btn-secondary rounded-pill py-3 px-5" href="xxx.php?module=tentang&id_profil=9">Mulai Beramal</a>
+                    <a class="btn btn-secondary rounded-pill py-3 px-5" href="https://baznas.go.id/kalkulatorzakat">KALKULATOR ZAKAT</a>
                 </div>
             </div>
         </div>
