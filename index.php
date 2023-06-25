@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?=$k[nama]?></title>
+    <title><?php echo"$k[nama]"; ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -56,7 +56,7 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-8 text-start">
-                                    <p class="fs-4 text-white">Welcome to <?=$k[nama]?></p>
+                                    <p class="fs-4 text-white">Welcome to <?php "$k[nama]"; ?></p>
                                     <h1 class="display-1 text-white mb-5 animated slideInRight">Shalat adalah obat dari segala kegelisahan</h1>
                                     <a href="xxx.php?module=tentang&id_profil=9" class="btn btn-secondary rounded-pill py-3 px-5 animated slideInRight">BERAMAL</a>
                                 </div>
@@ -70,7 +70,7 @@
                         <div class="container">
                             <div class="row justify-content-end">
                                 <div class="col-lg-8 text-end">
-                                    <p class="fs-4 text-white">Welcome to <?=$k[nama]?></p>
+                                    <p class="fs-4 text-white">Welcome to <?php echo" $k[nama]"; ?></p>
                                     <h1 class="display-1 text-white mb-5 animated slideInRight">Nabi SAW berkata, antara ketidakpercayaan dan iman adalah meninggalkan salat.</h1>
                                     <a href="xxx.php?module=tentang&id_profil=9" class="btn btn-secondary rounded-pill py-3 px-5 animated slideInLeft">BERAMAL</a>
                                 </div>
@@ -118,9 +118,9 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <p class="section-title bg-white text-start text-primary pe-3">Tentang <?=$k[nama]?></p>
+                    <p class="section-title bg-white text-start text-primary pe-3">Tentang <?php echo" $k[nama]"; ?></p>
                     <h1 class="mb-4">Kuatkan Iman, Kuatkan Umat</h1>
-                    <p class="mb-4"><?=$k[isi]?></p>
+                    <p class="mb-4"><?php echo"$k[isi]"; ?></p>
               
                     <a class="btn btn-secondary rounded-pill py-3 px-5" href="xxx.php?module=tentang&id_profil=9">Mulai Beramal</a>
                     <a class="btn btn-secondary rounded-pill py-3 px-5" href="https://baznas.go.id/kalkulatorzakat">KALKULATOR ZAKAT</a>
@@ -141,7 +141,7 @@
                     <p class="mb-4">Jika kamu bersedekah, ulurkan tangan kananmu dan sembunyikanlah tangan kirimu.</p>
                     <p><i class="fa fa-check text-primary me-3"></i>Obati penyakitmu dengan bersedekah. </p>
                     <p><i class="fa fa-check text-primary me-3"></i>Turut Kata Yang baik adalah sedekah</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Dana : <?=$k[tahun]?></p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Dana : <?php echo"$k[tahun]";?></p>
                     <a class="btn btn-secondary rounded-pill py-3 px-5 mt-3" href="xxx.php?module=tentang&id_profil=9">Ayo Sedekah</a>
                 </div>
                 <div class="col-lg-6">
@@ -164,7 +164,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="section-title bg-white text-center text-primary px-3"><?=$k[nama]?></p>
+                <p class="section-title bg-white text-center text-primary px-3"><?php echo"$k[nama]";?></p>
                 <h1 class="mb-5">informasi</h1>
             </div>
             <div class="row gy-5 gx-4">
@@ -176,15 +176,15 @@
                 <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item d-flex h-100">
                         <div class="service-img">
-                            <img class="img-fluid" src="foto/data/<?=$ar[gambar]?>" alt="">
+                            <img class="img-fluid" src="foto/data/<?php echo"$ar[gambar]";?>" alt="">
                         </div>
                         <div class="service-text p-5 pt-0">
                             <div class="service-icon">
-                                <img class="img-fluid rounded-circle" src="foto/data/<?=$ar[gambar]?>" alt="">
+                                <img class="img-fluid rounded-circle" src="foto/data/<?php echo"$ar[gambar]";?>" alt="">
                             </div>
-                            <h5 class="mb-3"><?=$ar[judul]?></h4>
-                            <p class="mb-4"><?=$isi6?></p>
-                            <a class="btn btn-square rounded-circle" href="xxx.php?module=detail&id=<?=$ar[id_berita]?>&id_k=<?=$ar[id_kat]?>"><i class="bi bi-chevron-double-right"></i></a>
+                            <h5 class="mb-3"><?php echo"$ar[judul]";?></h4>
+                            <p class="mb-4"><?php echo"$isi6";?></p>
+                            <a class="btn btn-square rounded-circle" href="xxx.php?module=detail&id=<?php echo"$ar[id_berita]";?>&id_k=<?php echo"$ar[id_kat]";?>"><i class="bi bi-chevron-double-right"></i></a>
                         </div>
                     </div>
                 </div>
