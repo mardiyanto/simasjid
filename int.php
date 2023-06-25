@@ -20,57 +20,41 @@ $no++;
           </div>
           <!-- /.nav-tabs-custom -->
         </div>   ";
-}
-elseif ($_GET[module]=='artikel'){
- echo"    <div class='container-fluid page-header py-5 mb-5 wow fadeIn' data-wow-delay='0.1s'>
- <div class='container py-5'>
-     <h1 class='display-3 text-white animated slideInRight'>ARTIKEL</h1>
-     <nav aria-label='breadcrumb'>
-         <ol class='breadcrumb animated slideInRight mb-0'>
-             <li class='breadcrumb-item'><a href='index.php'>Home</a></li>
-             <li class='breadcrumb-item'><a href='#'>artikel</a></li>
-             <li class='breadcrumb-item active' aria-current='page'>Artikel</li>
-         </ol>
-     </nav>
- </div>
-</div> 
- <div class='container-xxl py-5'>
- <div class='container'>
-     <div class='text-center mx-auto pb-4 wow fadeInUp' data-wow-delay='0.1s' style='max-width: 600px;'>
-         <p class='fw-medium text-uppercase text-primary mb-2'>Artikel</p>
-         <h1 class='display-5 mb-4'>Artikel  $k[nama]</h1>
-     </div><div class='row gy-5 gx-4'>";   
-	$con=mysqli_query($koneksi, "SELECT * FROM berita order by id_berita ASC");
+}  elseif ($_GET[module]=='artikel'){ ?>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="section-title bg-white text-center text-primary px-3"><?php echo"$k[nama]";?></p>
+                <h1 class="mb-5">informasi</h1>
+            </div>
+            <div class="row gy-5 gx-4">
+                <?php 	$con=mysqli_query($koneksi, "SELECT * FROM berita order by id_berita ASC");
 	while($ar=mysqli_fetch_array($con)){
 		$isi_berita6 = strip_tags($ar['isi']); 
                 $isi6 = substr($isi_berita6,0,200); 
-                $isi6 = substr($isi_berita6,0,strrpos($isi6," ")); 	
-echo"<div class='col-md-6 col-lg-4 wow fadeInUp' data-wow-delay='0.1s'>
-<div class='service-item'>
-    <img class='img-fluid' src='foto/data/$ar[gambar]' alt=''>
-    <div class='service-img'>
-        <img class='img-fluid' src='foto/data/$ar[gambar]' alt=''>
-    </div>
-    <div class='service-detail'>
-        <div class='service-title'>
-            <hr class='w-25'>
-            <h3 class='mb-0'>$ar[judul]</h3>
-            <hr class='w-25'>
+                $isi6 = substr($isi_berita6,0,strrpos($isi6," ")); 	?>
+                <div class="col-lg-4 col-md-6 pt-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item d-flex h-100">
+                        <div class="service-img">
+                            <img class="img-fluid" src="foto/data/<?php echo"$ar[gambar]";?>" alt="">
+                        </div>
+                        <div class="service-text p-5 pt-0">
+                            <div class="service-icon">
+                                <img class="img-fluid rounded-circle" src="foto/data/<?php echo"$ar[gambar]";?>" alt="">
+                            </div>
+                            <h5 class="mb-3"><?php echo"$ar[judul]";?></h4>
+                            <p class="mb-4"><?php echo"$isi6";?></p>
+                            <a class="btn btn-square rounded-circle" href="xxx.php?module=detail&id=<?php echo"$ar[id_berita]";?>&id_k=<?php echo"$ar[id_kat]";?>"><i class="bi bi-chevron-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+<?php }?>
+                
+               
+            </div>
         </div>
-        <div class='service-text'>
-            <p class='text-white mb-0'>$isi6</p>
-        </div>
     </div>
-    <a class='btn btn-light' href='xxx.php?module=detail&id=$ar[id_berita]&id_k=$ar[id_kat]'>Read More</a>
-</div>
-</div> 
-";
-}
-echo"        
-              
-</div>
-</div>
-</div>";
+<?php     
 }
 
 
@@ -234,8 +218,8 @@ elseif ($_GET[module]=='hubungi'){ ?>
                             <i class="fa fa-phone-alt fa-2x text-primary"></i>
                         </div>
                         <h4 class="mb-3">Phone Number</h4>
-                        <p class="mb-2"><?=$k[tahun]?></p>
-                        <a class="btn btn-primary px-4" href="tel:<?=$k[tahun]?>">Call Now <i class="fa fa-arrow-right ms-2"></i></a>
+                        <p class="mb-2"><?php echo"$k[tahun]";?></p>
+                        <a class="btn btn-primary px-4" href="tel:<?php echo"$k[tahun]";?>">Call Now <i class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -244,8 +228,8 @@ elseif ($_GET[module]=='hubungi'){ ?>
                             <i class="fa fa-envelope-open fa-2x text-primary"></i>
                         </div>
                         <h4 class="mb-3">Email Address</h4>
-                        <p class="mb-2"><?=$k[alias]?></p>
-                        <a class="btn btn-primary px-4" href="<?=$k[alias]?>">Email Now <i class="fa fa-arrow-right ms-2"></i></a>
+                        <p class="mb-2"><?php echo"$k[alias]";?></p>
+                        <a class="btn btn-primary px-4" href="<?php echo"$k[alias]";?>">Email Now <i class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -254,14 +238,14 @@ elseif ($_GET[module]=='hubungi'){ ?>
                             <i class="fa fa-map-marker-alt fa-2x text-primary"></i>
                         </div>
                         <h4 class="mb-3">Office Address</h4>
-                        <p class="mb-2"><?=$k[alamat]?></p>
-                        <a class="btn btn-primary px-4" href="https://goo.gl/maps/FsznshxgnULBGgkN9" target="blank">Direction <i class="fa fa-arrow-right ms-2"></i></a>
+                        <p class="mb-2"><?php echo"$k[alamat]";?></p>
+                        <a class="btn btn-primary px-4" href="index.php" target="blank">Direction <i class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
-                <?=$k[peta]?>
+                <?php echo"$k[peta]";?>
                 </div>
             </div>
             <div class="row g-5">
@@ -276,7 +260,7 @@ elseif ($_GET[module]=='hubungi'){ ?>
                                 </div>
                                 <div class="ms-3">
                                     <h6>Call Us</h6>
-                                    <span><?=$k[tahun]?></span>
+                                    <span><?php echo"$k[tahun]";?></span>
                                 </div>
                             </div>
                         </div>
@@ -287,7 +271,7 @@ elseif ($_GET[module]=='hubungi'){ ?>
                                 </div>
                                 <div class="ms-3">
                                     <h6>Mail Us</h6>
-                                    <span><?=$k[alias]?></span>
+                                    <span><?php echo"$k[alias]";?></span>
                                 </div>
                             </div>
                         </div>
@@ -357,9 +341,9 @@ elseif ($_GET[module]=='tentang'){
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <p class="section-title bg-white text-start text-primary pe-3">Tentang <?=$k[nama]?></p>
-                    <h1 class="mb-4"><?=$t[nama]?></h1>
-                    <p class="mb-4"><?=$t[isi]?></p>
+                    <p class="section-title bg-white text-start text-primary pe-3">Tentang <?php echo"$k[nama]";?></p>
+                    <h1 class="mb-4"><?php echo"$t[nama]";?></h1>
+                    <p class="mb-4"><?php echo"$t[isi]";?></p>
               
                     <a class="btn btn-secondary rounded-pill py-3 px-5" href="xxx.php?module=tentang&id_profil=9">Mulai Beramal</a>
                 </div>
@@ -386,12 +370,12 @@ elseif ($_GET[module]=='galery'){ ?>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
-                                <img class="img-fluid" src="foto/data/<?=$ar[gambar]?>" alt="">
+                                <img class="img-fluid" src="foto/data/<?php echo"$ar[gambar]";?>" alt="">
                                 <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">Pos by admin</small>
                             </div>
                             <div class="p-4 mt-2">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0"><?=$ar[judul]?></h5>
+                                    <h5 class="mb-0"><?php echo"$ar[judul]";?></h5>
                                     <div class="ps-2">
                                         <small class="fa fa-star text-primary"></small>
                                         <small class="fa fa-star text-primary"></small>
@@ -401,13 +385,13 @@ elseif ($_GET[module]=='galery'){ ?>
                                     </div>
                                 </div>
                                 <div class="d-flex mb-3">
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>dibaca : <?=$ar[dilihat]?> X</small>
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i><?=$ar[tanggal]?> - <?=$ar[jam]?></small>
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>dibaca : <?php echo"$ar[dilihat]";?> X</small>
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i><?php echo"$ar[tanggal]";?> - <?php echo"$ar[jam]";?></small>
                                     <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
                                 </div>
-                                <p class="text-body mb-3"><?=$isi6?></p>
+                                <p class="text-body mb-3"><?php echo"$isi6";?></p>
                                 <div class="d-flex justify-content-between">
-                                    <a href='xxx.php?module=detail&id=<?=$ar[id_berita]?>&id_k=<?=$ar[id_kat]?>' class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+                                    <a href='xxx.php?module=detail&id=<?php echo"$ar[id_berita]";?>&id_k=<?php echo"$ar[id_kat]";?>' class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
                                 </div>
                             </div>
                         </div>
