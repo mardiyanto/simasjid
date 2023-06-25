@@ -325,8 +325,8 @@ elseif ($_GET[module]=='tentang'){
                     <div class="row g-2">
                         <div class="col-6 position-relative wow fadeIn" data-wow-delay="0.7s">
                             <div class="about-experience bg-secondary rounded">
-                                <h1 class="display-1 mb-0">34 TH</h1>
-                                <small class="fs-5 fw-bold">Sejak 1989</small>
+                                <h1 class="display-1 mb-0">61 TH</h1>
+                                <small class="fs-5 fw-bold">Sejak 1962</small>
                             </div>
                         </div>
                         <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
