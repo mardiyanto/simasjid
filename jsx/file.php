@@ -11,4 +11,7 @@ $agt=mysqli_num_rows($agt);
 
 $posting=mysqli_query($koneksi, "SELECT SUM(id_berita)as b FROM berita");
 $post=mysqli_fetch_array($posting);
+
+$k4=mysqli_query($koneksi, "SELECT * FROM kritik ");
+$kri=mysqli_num_rows($k4);
 ?>

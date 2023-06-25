@@ -35,7 +35,7 @@
                 <a href="xxx.php?module=tentang&id_profil=1" class="nav-item nav-link">Tentang Kami</a>
               
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">AMAL</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Amal</a>
                     <div class="dropdown-menu bg-light m-0">
                      <?php $profil = mysqli_query($koneksi, "SELECT * FROM profil WHERE status_profil = 'hal'");
 if (mysqli_num_rows($profil) > 0) {
@@ -50,7 +50,19 @@ if (mysqli_num_rows($profil) > 0) {
                     
                     </div>
                 </div>
-                <a href="xxx.php?module=artikel" class="nav-item nav-link">Informasi</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Informasi</a>
+                    <div class="dropdown-menu bg-light m-0">
+                    <a href="xxx.php?module=artikel" class='dropdown-item'>Informasi</a>
+                    <?$kat=mysqli_query($koneksi," SELECT COUNT( berita.id_berita ) as jlh, kategori.id_kategori, kategori.kategori, kategori.gambar_kat FROM 
+kategori LEFT JOIN berita ON berita.id_kat= kategori.id_kategori GROUP BY kategori.id_kategori ORDER BY jlh DESC ");
+while($t=mysqli_fetch_array($kat)){
+$no++;?>
+ <a class='dropdown-item' href="xxx.php?module=kategori&id_k=<?=$t[id_kategori]?>"><?=$t[kategori]?></a>
+<?}?>
+                     
+                    </div>
+                </div>
                 <a href="xxx.php?module=galery" class="nav-item nav-link">Galery</a>
                
                 <a href="xxx.php?module=hubungi" class="nav-item nav-link">Hubungi Kami</a>

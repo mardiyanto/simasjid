@@ -77,7 +77,7 @@ include "../config/fungsi_combobox.php";
         </li>
 		<li><a href="index.php?aksi=profil"><i class="fa fa-mortar-board"></i>Profil</a></li> 
     <li><a href="index.php?aksi=halaman"><i class="fa fa-plus-square-o"></i>Halaman</a></li> 
-		<li><a href="index.php?aksi=kritik"><i class="fa fa-columns"></i>kritik</a></li> 
+		<li><a href="index.php?aksi=kritik"><i class="fa fa-columns"></i>kritik <span class="label bg-blue pull-right"><?php echo"$kri";?></span></a></li> 
 		<li><a href='index.php?aksi=admin'> <i class='fa  fa-bar-chart'></i>Data Admin</a></li>
 	    <li><a href='logout.php'><i class='fa fa-cog'></i>Logout</a></li>
       </ul>
