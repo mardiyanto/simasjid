@@ -26,8 +26,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=xxx.php?aksi=agenda&halaman=1><< First</a> |
-                    <a href=xxx.php?aksi=agenda&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=xxx.php?module=agenda&halaman=1><< First</a> |
+                    <a href=xxx.php?module=agenda&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev | ";
@@ -38,24 +38,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=xxx.php?aksi=agenda&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=agenda&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <b>$halaman_aktif</b> |  ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=xxx.php?aksi=agenda&halaman=$i>$i</a> |";
+	  $angka .= "<a href=xxx.php?module=agenda&halaman=$i>$i</a> |";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?aksi=agenda&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?module=agenda&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=xxx.php?aksi=agenda&halaman=$next>Next ></a> |
-                     <a href=xxx.php?aksi=agenda&halaman=$jmlhalaman>Last >></a> ";
+	$link_halaman .= " <a href=xxx.php?module=agenda&halaman=$next>Next ></a> |
+                     <a href=xxx.php?module=agenda&halaman=$jmlhalaman>Last >></a> ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -91,8 +91,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=xxx.php?aksi=bukutamu&halaman=1><< First</a> |
-                    <a href=xxx.php?aksi=bukutamu&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=xxx.php?module=bukutamu&halaman=1><< First</a> |
+                    <a href=xxx.php?module=bukutamu&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev |";
@@ -103,24 +103,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=xxx.php?aksi=bukutamu&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=bukutamu&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <b>$halaman_aktif</b> | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=xxx.php?aksi=bukutamu&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=bukutamu&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?aksi=bukutamu&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?module=bukutamu&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=xxx.php?aksi=bukutamu&halaman=$next>Next ></a> |
-                     <a href=xxx.php?aksi=bukutamu&halaman=$jmlhalaman>Last >></a> ";
+	$link_halaman .= " <a href=xxx.php?module=bukutamu&halaman=$next>Next ></a> |
+                     <a href=xxx.php?module=bukutamu&halaman=$jmlhalaman>Last >></a> ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -156,8 +156,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=xxx.php?aksi=kategori&id_k=$_GET[id_k]&halaman=1><< First</a> |
-                    <a href=xxx.php?aksi=kategori&id_k=$_GET[id_k]&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=xxx.php?module=kategori&id_k=$_GET[id_k]&halaman=1><< First</a> |
+                    <a href=xxx.php?module=kategori&id_k=$_GET[id_k]&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev  |";
@@ -168,24 +168,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=xxx.php?aksi=kategori&id_k=$_GET[id_k]&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=kategori&id_k=$_GET[id_k]&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <strong>$halaman_aktif</strong>  | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=xxx.php?aksi=kategori&id_k=$_GET[id_k]&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=kategori&id_k=$_GET[id_k]&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?aksi=kategori&id_k=$_GET[id_k]&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?module=kategori&id_k=$_GET[id_k]&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=xxx.php?aksi=kategori&id_k=$_GET[id_k]&halaman=$next>Next ></a> |
-                     <a href=xxx.php?aksi=kategori&id_k=$_GET[id_k]&halaman=$jmlhalaman>Last >></a> ";
+	$link_halaman .= " <a href=xxx.php?module=kategori&id_k=$_GET[id_k]&halaman=$next>Next ></a> |
+                     <a href=xxx.php?module=kategori&id_k=$_GET[id_k]&halaman=$jmlhalaman>Last >></a> ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -220,8 +220,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=xxx.php?aksi=galeri&halaman=1><< First</a> |
-                    <a href=xxx.php?aksi=galeri&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=xxx.php?module=galeri&halaman=1><< First</a> |
+                    <a href=xxx.php?module=galeri&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev  ";
@@ -232,24 +232,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=xxx.php?aksi=galeri&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=galeri&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <strong>$halaman_aktif</strong> | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=xxx.php?aksi=galeri&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=galeri&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?aksi=galeri&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?module=galeri&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=xxx.php?aksi=galeri&halaman=$next>Next ></a> |
-                     <a href=xxx.php?aksi=galeri&halaman=$jmlhalaman>Last >></a>  ";
+	$link_halaman .= " <a href=xxx.php?module=galeri&halaman=$next>Next ></a> |
+                     <a href=xxx.php?module=galeri&halaman=$jmlhalaman>Last >></a>  ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -284,8 +284,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=index.php?aksi=berita&halaman=1><< First</a> |
-                    <a href=index.php?aksi=berita&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=index.php?module=berita&halaman=1><< First</a> |
+                    <a href=index.php?module=berita&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev  ";
@@ -296,24 +296,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=index.php?aksi=berita&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=berita&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <strong>$halaman_aktif</strong> | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=index.php?aksi=berita&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=berita&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?aksi=berita&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?module=berita&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=index.php?aksi=berita&halaman=$next>Next ></a> |
-                     <a href=index.php?aksi=berita&halaman=$jmlhalaman>Last >></a>  ";
+	$link_halaman .= " <a href=index.php?module=berita&halaman=$next>Next ></a> |
+                     <a href=index.php?module=berita&halaman=$jmlhalaman>Last >></a>  ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -348,8 +348,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=xxx.php?aksi=pegawai&halaman=1><< First</a> |
-                    <a href=xxx.php?aksi=pegawai&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=xxx.php?module=pegawai&halaman=1><< First</a> |
+                    <a href=xxx.php?module=pegawai&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev  ";
@@ -360,24 +360,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=xxx.php?aksi=pegawai&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=pegawai&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <strong>$halaman_aktif</strong> | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=xxx.php?aksi=pegawai&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=pegawai&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?aksi=pegawai&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?module=pegawai&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=xxx.php?aksi=pegawai&halaman=$next>Next ></a> |
-                     <a href=xxx.php?aksi=pegawai&halaman=$jmlhalaman>Last >></a>  ";
+	$link_halaman .= " <a href=xxx.php?module=pegawai&halaman=$next>Next ></a> |
+                     <a href=xxx.php?module=pegawai&halaman=$jmlhalaman>Last >></a>  ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -412,8 +412,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=index.php?aksi=galeri&halaman=1><< First</a> |
-                    <a href=index.php?aksi=galeri&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=index.php?module=galeri&halaman=1><< First</a> |
+                    <a href=index.php?module=galeri&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev  ";
@@ -424,24 +424,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=index.php?aksi=galeri&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=galeri&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <strong>$halaman_aktif</strong> | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=index.php?aksi=galeri&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=galeri&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?aksi=kategori&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?module=kategori&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=index.php?aksi=galeri&halaman=$next>Next ></a> |
-                     <a href=index.php?aksi=galeri&halaman=$jmlhalaman>Last >></a>  ";
+	$link_halaman .= " <a href=index.php?module=galeri&halaman=$next>Next ></a> |
+                     <a href=index.php?module=galeri&halaman=$jmlhalaman>Last >></a>  ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -476,8 +476,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=index.php?aksi=inventaris&halaman=1><< First</a> |
-                    <a href=index.php?aksi=inventaris&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=index.php?module=inventaris&halaman=1><< First</a> |
+                    <a href=index.php?module=inventaris&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev  ";
@@ -488,24 +488,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=index.php?aksi=inventaris&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=inventaris&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <strong>$halaman_aktif</strong> | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=index.php?aksi=inventaris&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=inventaris&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?aksi=inventaris&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?module=inventaris&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=index.php?aksi=inventaris&halaman=$next>Next ></a> |
-                     <a href=index.php?aksi=inventaris&halaman=$jmlhalaman>Last >></a>  ";
+	$link_halaman .= " <a href=index.php?module=inventaris&halaman=$next>Next ></a> |
+                     <a href=index.php?module=inventaris&halaman=$jmlhalaman>Last >></a>  ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -540,8 +540,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=index.php?aksi=kepegawaian&halaman=1><< First</a> |
-                    <a href=index.php?aksi=kepegawaian&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=index.php?module=kepegawaian&halaman=1><< First</a> |
+                    <a href=index.php?module=kepegawaian&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev  ";
@@ -552,24 +552,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=index.php?aksi=kepegawaian&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=kepegawaian&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <strong>$halaman_aktif</strong> | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=index.php?aksi=kepegawaian&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=kepegawaian&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?aksi=kepegawaian&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?module=kepegawaian&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=index.php?aksi=kepegawaian&halaman=$next>Next ></a> |
-                     <a href=index.php?aksi=kepegawaian&halaman=$jmlhalaman>Last >></a>  ";
+	$link_halaman .= " <a href=index.php?module=kepegawaian&halaman=$next>Next ></a> |
+                     <a href=index.php?module=kepegawaian&halaman=$jmlhalaman>Last >></a>  ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -604,8 +604,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=index.php?aksi=agenda&halaman=1><< First</a> |
-                    <a href=index.php?aksi=agenda&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=index.php?module=agenda&halaman=1><< First</a> |
+                    <a href=index.php?module=agenda&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev  ";
@@ -616,24 +616,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=index.php?aksi=agenda&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=agenda&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <strong>$halaman_aktif</strong> | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=index.php?aksi=agenda&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=agenda&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?aksi=agenda&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?module=agenda&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=index.php?aksi=agenda&halaman=$next>Next ></a> |
-                     <a href=index.php?aksi=agenda&halaman=$jmlhalaman>Last >></a>  ";
+	$link_halaman .= " <a href=index.php?module=agenda&halaman=$next>Next ></a> |
+                     <a href=index.php?module=agenda&halaman=$jmlhalaman>Last >></a>  ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -669,8 +669,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=index.php?aksi=bukutamu&halaman=1><< First</a> |
-                    <a href=index.php?aksi=bukutamu&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=index.php?module=bukutamu&halaman=1><< First</a> |
+                    <a href=index.php?module=bukutamu&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev  ";
@@ -681,24 +681,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=index.php?aksi=bukutamu&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=bukutamu&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <strong>$halaman_aktif</strong> | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=index.php?aksi=bukutamu&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=index.php?module=bukutamu&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?aksi=bukutamu&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=index.php?module=bukutamu&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=index.php?aksi=bukutamu&halaman=$next>Next ></a> |
-                     <a href=index.php?aksi=bukutamu&halaman=$jmlhalaman>Last >></a>  ";
+	$link_halaman .= " <a href=index.php?module=bukutamu&halaman=$next>Next ></a> |
+                     <a href=index.php?module=bukutamu&halaman=$jmlhalaman>Last >></a>  ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
@@ -733,8 +733,8 @@ $link_halaman = "";
 // Link ke halaman pertama (first) dan sebelumnya (prev)
 if($halaman_aktif > 1){
 	$prev = $halaman_aktif-1;
-	$link_halaman .= "<a href=xxx.php?aksi=kepegawaian&halaman=1><< First</a> |
-                    <a href=xxx.php?aksi=kepegawaian&halaman=$prev>< Prev</a> | ";
+	$link_halaman .= "<a href=xxx.php?module=kepegawaian&halaman=1><< First</a> |
+                    <a href=xxx.php?module=kepegawaian&halaman=$prev>< Prev</a> | ";
 }
 else{ 
 	$link_halaman .= "<< First | < Prev  ";
@@ -745,24 +745,24 @@ $angka = ($halaman_aktif > 3 ? " ... " : " ");
 for ($i=$halaman_aktif-2; $i<$halaman_aktif; $i++){
   if ($i < 1)
   	continue;
-	  $angka .= "<a href=xxx.php?aksi=kepegawaian&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=kepegawaian&halaman=$i>$i</a> | ";
   }
 	  $angka .= "  <strong>$halaman_aktif</strong> | ";
 	  
     for($i=$halaman_aktif+1; $i<($halaman_aktif+3); $i++){
     if($i > $jmlhalaman)
       break;
-	  $angka .= "<a href=xxx.php?aksi=kepegawaian&halaman=$i>$i</a> | ";
+	  $angka .= "<a href=xxx.php?module=kepegawaian&halaman=$i>$i</a> | ";
     }
-	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?aksi=kepegawaian&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
+	  $angka .= ($halaman_aktif+2<$jmlhalaman ? " ... <a href=xxx.php?module=kepegawaian&halaman=$jmlhalaman>$jmlhalaman</a> | " : " ");
 
 $link_halaman .= "$angka";
 
 // Link ke halaman berikutnya (Next) dan terakhir (Last) 
 if($halaman_aktif < $jmlhalaman){
 	$next = $halaman_aktif+1;
-	$link_halaman .= " <a href=xxx.php?aksi=kepegawaian&halaman=$next>Next ></a> |
-                     <a href=xxx.php?aksi=kepegawaian&halaman=$jmlhalaman>Last >></a>  ";
+	$link_halaman .= " <a href=xxx.php?module=kepegawaian&halaman=$next>Next ></a> |
+                     <a href=xxx.php?module=kepegawaian&halaman=$jmlhalaman>Last >></a>  ";
 }
 else{
 	$link_halaman .= " Next > | Last >>";
