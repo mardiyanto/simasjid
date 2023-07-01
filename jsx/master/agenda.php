@@ -1,4 +1,3 @@
-
 <?php
 include "../../config/koneksi.php";
 $act=$_GET[act];
@@ -10,7 +9,7 @@ if (empty($_POST[tm]) || empty($_POST[tglm]) || empty($_POST[tgls]) || empty($_P
  echo "<script>window.alert('Data yang Anda isikan belum lengkap');
         window.location=('javascript:history.go(-1)')</script>";
      }else{
-mysql_query("insert into agenda (tema,isi_agenda,tempat,pengirim,tgl_mulai,tgl_selesai,tgl_posting,jam) values                                ('$_POST[tm]',
+mysqli_query($koneksi,"insert into agenda (tema,isi_agenda,tempat,pengirim,tgl_mulai,tgl_selesai,tgl_posting,jam) values                                ('$_POST[tm]',
                                  '$_POST[isi]',
 								 '$_POST[tp]',
 								 '$_POST[pg]',
@@ -29,7 +28,7 @@ if (empty($_POST[tm]) || empty($_POST[tglm]) || empty($_POST[tgls]) || empty($_P
  echo "<script>window.alert('Data yang Anda isikan belum lengkap');
         window.location=('javascript:history.go(-1)')</script>";
      }else{
-mysql_query("UPDATE agenda SET       
+mysqli_query($koneksi,"UPDATE agenda SET       
                            tema='$_POST[tm]',
 						   isi_agenda='$_POST[isi]',
 						   tempat='$_POST[tp]',
@@ -45,7 +44,7 @@ echo "<script>window.location=('../index.php?aksi=agenda')</script>";
 }
 
 elseif($act=='hapus'){
-mysql_query("DELETE FROM agenda WHERE id_agenda='$_GET[id_a]'");
+mysqli_query($koneksi,"DELETE FROM agenda WHERE id_agenda='$_GET[id_a]'");
 echo "<script>window.location=('../index.php?aksi=agenda')</script>";
 }
 ?>

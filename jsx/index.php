@@ -75,7 +75,16 @@ include "../config/fungsi_combobox.php";
          <span class="label bg-blue pull-right"><?php echo"$kk";?></span></a></li>
           </ul>
         </li>
-		<li><a href="index.php?aksi=profil"><i class="fa fa-mortar-board"></i>Profil</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-mortar-board"></i>  Profil<span class="caret"></span><span class="label pull-right bg-red"><?php echo"$kk";?></span></a>
+          <ul class="dropdown-menu" role="menu">
+          <li><a href="index.php?aksi=profil"><i class="fa fa-mortar-board"></i>Profil</a></li> 
+          <li><a href="index.php?aksi=halamanprofil"><i class="fa fa-mortar-board"></i>halaman Profil</a></li>
+          <li><a href="index.php?aksi=agenda"><i class="fa fa-mortar-board"></i>agenda</a></li> 
+          <li><a href="index.php?aksi=galeri"><i class="fa fa-mortar-board"></i>galery</a></li>   
+          </ul>
+        </li>
+		 
     <li><a href="index.php?aksi=halaman"><i class="fa fa-plus-square-o"></i>Halaman</a></li> 
 		<li><a href="index.php?aksi=kritik"><i class="fa fa-columns"></i>kritik <span class="label bg-blue pull-right"><?php echo"$kri";?></span></a></li> 
 		<li><a href='index.php?aksi=admin'> <i class='fa  fa-bar-chart'></i>Data Admin</a></li>

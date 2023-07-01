@@ -20,7 +20,7 @@ $tanggal=date("dmYhis");
 $file=$_FILES['gambar']['tmp_name'];
 $file_name=$_FILES['gambar']['name'];
 copy($file,"../../foto/galleri/".$tanggal.".jpg");
-mysql_query("insert into galeri (judul,keterangan,gambar) values ('$_POST[jd]','$_POST[isi]','$tanggal.jpg')");
+mysqli_query($koneksi,"insert into galeri (judul,keterangan,gambar) values ('$_POST[jd]','$_POST[isi]','$tanggal.jpg')");
    
 echo "<script>window.location=('../index.php?aksi=galeri')</script>";
    }
@@ -35,14 +35,14 @@ if (empty($_POST[jd]) || empty($_POST[isi])){
 	 
 $lokasi_file=$_FILES[gambar][tmp_name];
 if(empty($lokasi_file)){
-mysql_query("UPDATE galeri SET judul='$_POST[jd]', keterangan='$_POST[isi]' WHERE id_galeri='$_GET[id_g]'");
+mysqli_query($koneksi,"UPDATE galeri SET judul='$_POST[jd]', keterangan='$_POST[isi]' WHERE id_galeri='$_GET[id_g]'");
 echo "<script>window.location=('../index.php?aksi=galeri')</script>";
 }else{
 $a=$_GET['gb'];
 $file=$_FILES['gambar']['tmp_name'];
 $file_name=$_FILES['gambar']['name'];
 copy($file,"../../foto/galleri/".$a);
-mysql_query("UPDATE galeri SET judul='$_POST[jd]', keterangan='$_POST[isi]' WHERE id_galeri='$_GET[id_g]'");
+mysqli_query($koneksi,"UPDATE galeri SET judul='$_POST[jd]', keterangan='$_POST[isi]' WHERE id_galeri='$_GET[id_g]'");
    
 echo "<script>window.location=('../index.php?aksi=galeri')</script>";
    }
@@ -50,7 +50,7 @@ echo "<script>window.location=('../index.php?aksi=galeri')</script>";
 }
 
 elseif($act=='hapus'){
-mysql_query("DELETE FROM galeri WHERE id_galeri='$_GET[id_g]'");
+mysqli_query($koneksi,"DELETE FROM galeri WHERE id_galeri='$_GET[id_g]'");
 $b=$_GET['gbr'];
 $pathFile="../../foto/galleri/$b";	   
 unlink($pathFile);

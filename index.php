@@ -56,8 +56,8 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-8 text-start">
-                                    <p class="fs-4 text-white">Welcome to <?php "$k[nama]"; ?></p>
-                                    <h1 class="display-1 text-white mb-5 animated slideInRight">Shalat adalah obat dari segala kegelisahan</h1>
+                                    <p class="fs-2 text-white">Welcome to <?php "$k[nama]"; ?></p>
+                                    <h1 class="fs-2 text-white mb-5 animated slideInRight">Shalat adalah obat dari segala kegelisahan</h1>
                                     <a href="xxx.php?module=tentang&id_profil=9" class="btn btn-secondary rounded-pill py-3 px-5 animated slideInRight">BERAMAL</a>
                                 </div>
                             </div>
@@ -70,8 +70,8 @@
                         <div class="container">
                             <div class="row justify-content-end">
                                 <div class="col-lg-8 text-end">
-                                    <p class="fs-4 text-white">Welcome to <?php echo" $k[nama]"; ?></p>
-                                    <h1 class="display-1 text-white mb-5 animated slideInRight">Nabi SAW berkata, antara ketidakpercayaan dan iman adalah meninggalkan salat.</h1>
+                                    <p class="fs-2 text-white">Welcome to <?php echo" $k[nama]"; ?></p>
+                                    <h1 class="fs-2 text-white mb-5 animated slideInRight">Nabi SAW berkata, antara ketidakpercayaan dan iman adalah meninggalkan salat.</h1>
                                     <a href="xxx.php?module=tentang&id_profil=9" class="btn btn-secondary rounded-pill py-3 px-5 animated slideInLeft">BERAMAL</a>
                                 </div>
                             </div>

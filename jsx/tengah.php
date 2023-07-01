@@ -438,7 +438,58 @@ $no++;
 	  </div>	
 	";
 }
-
+elseif($aksi=='halamanprofil'){
+    echo"			
+        <div class='row'>
+         <div class='col-xs-12'>
+                  <div class='panel panel-primary'>
+                    <div class='box-header'>
+                       <h3 class='box-title'>INFORMASI PROFIL</h3>
+                    </div>
+                    <div class='box-header'>
+                    <a href='index.php?aksi=inputhalprofil' title='Edit' class='btn btn-info'>Tambah Halaman</a>
+                    </div>
+                                 <div class='box-body'>
+            <div class='table-responsive'>		
+         <table id='example1' class='table table-bordered table-striped'>
+         <thead> 
+         <tr>
+                                                <th>No</th>
+                                                <th>Profil</th>
+                                                <th>aksi</th>
+                                            </tr>
+                                        </thead>
+                       <tbody> ";
+                    $tebaru=mysqli_query($koneksi, " SELECT * FROM profil WHERE status_profil = 'halpro' ORDER BY id_profil DESC ");
+    while ($t=mysqli_fetch_array($tebaru)){
+                    $isi_berita = strip_tags($t['isi']); 
+                    $isi = substr($isi_berita,0,70); 
+                    $isi = substr($isi_berita,0,strrpos($isi," ")); 
+                    if($t[aktif]=='Y'){$mk='<strong>Tampil</strong>';}else{$mk='Tidak';}
+    $no++;    
+                                        echo"
+                                            <tr>
+                                                <td>$no</td>
+                                                <td>$t[nama]</td>
+                                                <td><div class='btn-group' role='group' aria-label='Basic example'>
+                                                <a href='index.php?aksi=viewprofil&id_p=$t[id_profil]' class='btn btn-info'><i class='fa fa-eye'></i></a>
+                                                <a href='index.php?aksi=edithalamanprofil&id_p=$t[id_profil]' class='btn btn-info'><i class='fa fa-edit'></i></a>
+                                                <a href='master/profil.php?act=hapuspro&id_p=$t[id_profil]' class='btn btn-info'><i class='fa fa-trash-o'></i></a>
+                                              </div> 
+                                                </td>
+                                           </tr>                                      
+                                        ";
+    }
+                                    echo"</tbody></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                </div>		
+         </div>
+          </div>	
+        ";
+    }
 
 elseif($aksi=='profil'){
     echo"			
@@ -520,7 +571,32 @@ elseif($aksi=='inputprofil'){
         </form></div> </div></div> </div></div> </div>
     ";
     }
-    
+    elseif($aksi=='inputhalprofil'){
+        echo"
+        <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='panel panel-default'>
+                                <div class='panel-heading'>EDIT PROFIL
+                                </div>
+                                <div class='panel-body'>			
+        <form id='form1'  method='post' action='master/profil.php?act=inputpro'>
+               <div class='form-grup'>
+                <label>Judul</label>
+                <input type='text' class='form-control' name='jd'/>
+                <label>nama menu</label>
+                <input type='text' class='form-control' name='alias'/>
+                <input type='hidden' class='form-control' value='halpro' name='status_profil'/><br>
+                <label>Isi</label>
+                <textarea id='text-ckeditor' class='form-control' name='isi'></textarea></br>
+                <script>CKEDITOR.replace('text-ckeditor');</script>
+                <div class='modal-footer'>
+                                                    <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                                                    <button type='submit' class='btn btn-primary'>Save </button>
+                                                </div> </div>
+            </form></div> </div></div> </div></div> </div>
+        ";
+        }
+           
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 elseif($aksi=='editprofil'){
@@ -702,4 +778,299 @@ echo"
       </div></div></div></div>
 ";
 }
+elseif($aksi=='agenda'){
+    echo"
+    <div class='row'>
+                    <div class='col-lg-12'>
+                        <div class='panel panel-default'>
+                            <div class='panel-heading'>
+                                Data Agenda Kegiatan
+                            </div>
+                            <div class='panel-body'>
+                                <div class='panel-group' id='accordion'>
+                                    <div class='panel panel-default'>
+                                        <div class='panel-heading'>
+                                            <h4 class='panel-title'>
+                                                <a data-toggle='collapse' data-parent='#accordion' href='#collapseOne'>Agenda</a>
+                                            </h4>
+                                        </div>
+                                        <div id='collapseOne' class='panel-collapse collapse in'>
+                                            <div class='panel-body'>
+                                <div class='table-responsive'>
+                                    <table class='table table-striped table-bordered table-hover'>
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Tema</th>
+                                                <th>Isi</th>
+                                                <th>Tanggal Mulai</th>
+                            <th>Tanggal Selesai</th>
+                            <th>Pilihan</th>
+                                            </tr>
+                                        </thead>
+                        ";
+                    $tebaru=mysqli_query($koneksi," SELECT * FROM agenda ORDER BY id_agenda DESC ");
+    while ($t=mysqli_fetch_array($tebaru)){
+                    
+    $no++;    
+                                        echo"<tbody>
+                                            <tr>
+                                                <td>$no</td>
+                                                <td>$t[tema]</td>
+                                                <td>$t[isi_agenda]</td>
+                                                <td>$t[tgl_mulai]</td>
+                              <td>$t[tgl_selesai]</td>
+                             <td>
+                             
+                             <a href='index.php?aksi=editagenda&id_a=$t[id_agenda]' title='Edit' class='icon-edit'></a>&nbsp;
+                    <a href='index.php?aksi=lihat_agenda&id=$t[id_agenda]' title='Lihat' class='icon-eye-open'></a>&nbsp;
+                    <a href='master/agenda.php?id_a=$t[id_agenda]&act=hapus' onclick=\"return confirm ('Apakah yakin ingin menghapus $t[tema] ?')\" title='Hapus' class='icon-trash '></a>
+                
+                          
+                    </td>
+                                            </tr>
+                                           
+                                        </tbody>";
+    }
+                                    echo"</table>
+                                </div>
+                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='panel panel-default'>
+                                        <div class='panel-heading'>
+                                            <h4 class='panel-title'>
+                                                <a data-toggle='collapse' data-parent='#accordion' href='#collapseTwo'>Tambah Agenda</a>
+                                            </h4>
+                                        </div>
+                                        <div id='collapseTwo' class='panel-collapse collapse'>
+              
+          <div class='panel-body'>
+                                            
+        <form  method='post' action='master/agenda.php?act=inputagenda' >
+        <label>Tema</label>
+            <input class='form-control' placeholder='Masukan Tema' name='tm' required>
+            
+            <label>Tanggal Mulai</label>
+        
+          <input type='text' class='form-control' id='datepicker' name='tglm' required/>
+        
+            <label>Tanggal Selesai</label>
+           <input type='text' class='form-control' id='datepicker1' name='tgls' required/>
+            
+            <label>Jam</label>
+            <input class='form-control timepicker-default' type='text' name='jm' required/>
+            
+            <label>Tempat</label>
+            <input class='form-control' placeholder='Masukan Tema' name='tp' required>
+            
+            <label>Pengirim</label>
+            <input class='form-control' placeholder='Masukan Tema' name='pg' required>
+            <label>Isi Agenda</label>
+            <textarea id='text-ckeditor' class='form-control' name='isi'></textarea></br>
+            <script>CKEDITOR.replace('text-ckeditor');</script>
+                <input type='submit' value='Simpan' class='btn btn-primary'  />
+                 <input type='reset' value='Ulangi' class='btn btn-default'  />
+        </form>
+                        
+                        </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div>
+    
+    ";
+    }
+    //////////////////////////////////////
+    elseif($aksi=='lihat_agenda'){
+    $tebaru=mysqli_query($koneksi," SELECT * FROM agenda WHERE id_agenda=$_GET[id]  ");
+    $t=mysqli_fetch_array($tebaru);
+    echo"<div class='row'>
+                    <div class='col-lg-6'>
+                        <div class='panel panel-default'>
+                            <div class='panel-heading'>$t[tema]
+                            </div>
+                            <div class='panel-body'>
+            
+    
+    ";
+    
+    echo"<h4>Tema Agenda</h4>
+    <p>$t[isi_agenda]</p>
+    
+    <h4>Lokasi</h4>
+    <p>$t[tempat]</p>
+    
+    <h4>Tanggal Mulai Dan Selesai</h4>
+    <p>$t[tgl_mulai] s/d $t[tgl_selesai]</p>
+    
+    <h4>Tanggal Posting</h4>
+    <p>$t[tgl_posting]</p>
+    
+    <h4>Pengirim</h4>
+    <p>$t[pengirim]</p>
+    
+    
+    <a href='javascript:history.go(-1)' class='btn btn-info'> Kembali</a></div>
+    </div></div></div></div></div>";
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    elseif($aksi=='editagenda'){
+    $tebaru=mysqli_query($koneksi," SELECT * FROM agenda WHERE id_agenda=$_GET[id_a] ");
+    $t=mysqli_fetch_array($tebaru);
+    echo"
+    <div class='row'>
+                    <div class='col-lg-12'>
+                        <div class='panel panel-default'>
+                            <div class='panel-heading'>
+                                Edit Kegiatan
+                            </div>
+                            <div class='panel-body'>
+    
+    <form id='form1'  method='post' action='master/agenda.php?act=editagenda&id_a=$t[id_agenda]'>
+            <label>Tema</label>
+            <input type='text' class='form-control'  name='tm' value='$t[tema]'/><br>
+            
+            <label>Tanggal Mulai</label>
+            <input type='text' class='form-control'  size='50' name='tglm' id='pertg1' value='$t[tgl_mulai]' /><br>
+            <script type='text/javascript'>
+            // BeginWebWidget jQuery_UI_Calendar: jQueryUICalendar1
+            jQuery('#pertg1').datepicker()</script>
+           
+            <label>Tanggal Selesai</label>
+            <input type='text' class='form-control'  size='50' name='tgls' id='pertg2' value='$t[tgl_selesai]' /><br>
+            <script type='text/javascript'>
+            // BeginWebWidget jQuery_UI_Calendar: jQueryUICalendar1
+            jQuery('#pertg2').datepicker()</script>
+            
+            <label>Jam</label>
+            <input type='text' class='form-control' size='50' name='jm' value='$t[jam]'/><br>
+            
+            <label>Tempat</label>
+            <input type='text' class='form-control'  name='tp' value='$t[tempat]'/><br>
+            
+            <label>Pengirim</label>
+            <input type='text' class='form-control'  name='pg' value='$t[pengirim]'/><br>
+            
+            <label>Isi Agenda Kegiatan</label>
+           <textarea id='text-ckeditor' class='form-control' name='isi'>$t[isi_agenda]</textarea></br>
+            <script>CKEDITOR.replace('text-ckeditor');</script><br />	
+                <input type='submit' value='Simpan' class='btn btn-primary'  />
+                 <input type='reset' value='Ulangi' class='btn btn-default'  />
+        </form>
+        </div> </div> </div> </div> </div>  </div> 
+    ";
+    }
+    elseif($aksi=='galeri'){
+        echo"<div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='panel panel-default'>
+                                <div class='panel-heading'>INFORMASI GALERI
+                                </div>
+                                <div class='panel-body'>
+                    <button class='btn btn-info' data-toggle='modal' data-target='#uiModal'>
+                                        Tambah Data
+                                    </button>
+                                    <div class='table-responsive'>
+                                        <table class='table table-striped table-bordered table-hover'>
+                            <thead>
+                                <tr>
+                                    <th width=1% >No</th>
+                                    <th width=20% >Jundul</th>
+                                    <th width=5% >Foto</th>
+                                    <th width=35%>Keterangan</th>
+                                    <th width=5%>Pilihan</th>
+                                </tr>
+                            </thead>
+                            <tbody>";
+        $tebaru=mysqli_query($koneksi," SELECT * FROM galeri ORDER BY id_galeri DESC");
+        while ($t=mysqli_fetch_array($tebaru)){
+        $no++;
+        
+                               echo"<tr class='gradeA' >
+                                    <td align=center valign='top'>$no</td>
+                                    <td valign='top'>$t[judul]</td>
+                                    <td  valign='top' align='center'><img alt='galeri'  src='../foto/galleri/$t[gambar]' width=80 height=60 class='box-shadow2'/></td>
+                                    <td  valign='top'>$t[keterangan]</td>
+                                    <td>
+                            
+                        <a href='index.php?aksi=editgaleri&id_g=$t[id_galeri]' title='Edit' class='icon-edit'></a>&nbsp;
+                        <a href='master/galleri.php?id_g=$t[id_galeri]&act=hapus&gbr=$t[gambar]' onclick=\"return confirm ('Apakah yakin ingin menghapus $t[judul] ?')\" title='Hapus' class='icon-trash'>
+                        
+                                </td></tr>";
+                                 }						
+                                echo"</tbody>
+                        </table></div></div></div></div></div></div></div>";
+                        
+                        
+                        
+                        echo"
+                        <div class='col-lg-12'>
+                                <div class='modal fade' id='uiModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+                                        <div class='modal-dialog'>
+                                            <div class='modal-content'>
+                                                <div class='modal-header'>
+                                                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                                                    <h4 class='modal-title' id='H3'>Input Data Galeri</h4>
+                                                </div>
+                                                <div class='modal-body'>
+                        <form id='form1'  method='post' enctype='multipart/form-data' action='master/galleri.php?act=inputgalleri'>
+               <div class='form-grup'>
+               <label>Gambar</label>
+                <input type='file' size='50'name='gambar'/>
+                <label>Judul</label>
+                <input type='text' class='form-control'  name='jd'/>
+                <label>Isi</label>
+                <textarea id='text-ckeditor' class='form-control' name='isi'></textarea></br>
+                <script>CKEDITOR.replace('text-ckeditor');</script>	
+                    <div class='modal-footer'>
+                                                    <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                                                    <button type='submit' class='btn btn-primary'>Save </button>
+                                                </div>
+                </div>
+            </form>
+            </div></div></div></div></div> 
+                        
+                        
+                        
+                        ";
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        elseif($aksi=='editgaleri'){
+        $tebaru=mysqli_query($koneksi," SELECT * FROM galeri WHERE id_galeri=$_GET[id_g] ");
+        $t=mysqli_fetch_array($tebaru);
+        echo"
+        <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='panel panel-default'>
+                                <div class='panel-heading'>INFORMASI GALERI
+                                </div>
+                                <div class='panel-body'>
+        <form id='form1' method='post' enctype='multipart/form-data' action='master/galleri.php?act=editgalleri&gb=$t[gambar]&id_g=$t[id_galeri]'>
+               <div class='form-grup'>
+               <img src='../foto/galleri/$t[gambar]' width='215' height='160' class='box-shadow2'/><br />
+               <label>Gambar</label>
+                <input type='file' size='50'name='gambar'/><br>
+                <label>Judul</label>
+                <input type='text' class='form-control'  name='jd' value='$t[judul]'/><br>
+                <label>Isi</label>
+               <textarea id='text-ckeditor' class='form-control' name='isi'>$t[keterangan]</textarea></br>
+                <script>CKEDITOR.replace('text-ckeditor');</script>		
+                    <div class='modal-footer'>
+                                                    <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                                                    <button type='submit' class='btn btn-primary'>Save </button>
+                                                </div>
+                </div>
+            </form>
+            </div></div></div></div></div></div>
+        ";
+        }
+        
 ?>
