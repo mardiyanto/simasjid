@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Waktu Sholat + Google MAP - Javascript</title>
+    <script type="text/javascript" src="ws.js"></script>
+    <!--
+        Panggil Google Map API
+        * Bila akan di hosting pada suatu domain, Kita harus
+          Mendaftarkan api key, dan format atribut src pada
+          tag script di bawah adalah seperti berikut:
+              http://maps.google.com/maps?file=api&amp;key=AIzaSyBJ_XlxltqRMHEaqUxKak6LkIb0jt4qRWM
+    -->
+    <script src="http://maps.google.com/maps?file=api&amp;key=AIzaSyBJ_XlxltqRMHEaqUxKak6LkIb0jt4qRWM" type="text/javascript"></script>
+</head>
+<body onload="initWaktuSholat()">
+  <h3>Konfigurasi</h3>
+  <table>
+    <tr>
+      <th>Latitude</th>
+      <td><input type="text" id="config_latitude" size="25" value="-6.920633" /></td>
+      <td rowspan="7">
+        <div id="map_canvas" style="width:450px; height:280px; border:1px solid #000"></div>
+        <div style="font-size:10px;text-align:center;background:#ddd">Map: (Double Click [kiri/kanan] untuk zoom in/out)</div>
+      </td>
+    </tr>
+    <tr>
+      <th>Longitude</th>
+      <td><input type="text" id="config_longitude" size="25" value="107.603703" /></td>
+    </tr>
+    <tr>
+      <th>Tahun</th>
+      <td><input type="text" id="config_thn" size="10" value="2011" /></td>
+    </tr>
+    <tr>
+      <th>Bulan</th>
+      <td><input type="text" id="config_bln" size="10" value="8" /></td>
+    </tr>
+    <tr>
+      <th>Tgl</th>
+      <td><input type="text" id="config_tgl" size="10" value="6" /></td>
+    </tr>
+    <tr>
+      <th>TimeZone</th>
+      <td><input type="text" id="config_timezone" size="10" value="7" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="button" value="Update Waktu Sholat" onclick="updateWaktuSholat()" /></td>
+    </tr>
+  </table>
+    
+  <h3>Hasil Perhitungan</h3>
+  <table cellpadding="1" cellspacing="1" style="background:#ddd">
+    <tr style="background:#ccc">
+      <th>Shubuh</th>
+      <th>Zuhur</th>
+      <th>Ashar</th>
+      <th>Maghrib</th>
+      <th>Isya</th>
+    </tr>
+    <tr style="background:#fff">
+      <td><input type="text" id="waktu_shubuh" size="10" /></td>
+      <td><input type="text" id="waktu_zuhur" size="10" /></td>
+      <td><input type="text" id="waktu_ashar" size="10" /></td>
+      <td><input type="text" id="waktu_maghrib" size="10" /></td>
+      <td><input type="text" id="waktu_isya" size="10" /></td>
+    </tr>
+  </table>
+  
+
+<!-- Script Untuk Menampilkan Map -->
+<script type="text/javascript">
+/*<![CDATA[*/
+/*BIASAKAN MENGGUNAKAN CDATA UNTUK INLINE SCRIPT */
+ 
+/**
+ * Gunakan Koordinat Kota Bandung Sebagai
+ * Koordinat default
+ */
+var bandung_lat = -6.920633;
+var bandung_lng = 107.603703;
+
+/* Variabel untuk memuat objek Google Map */
+var map = null;
+
+/* Ketika dokument telah termuat, fungsi ini akan
+ * dipanggil, lihat tag body-onload
+ */
+function buatMap(){
+  /* Cek terlebih dahulu, apakah
+  * google map api dapat digunakan?
+  */
+  if (GBrowserIsCompatible()) {
+    /* Buat Map dengan canvas 'map_canvas' */
+    map = new GMap2(document.getElementById("map_canvas"));
+    
+    /* Set Lokasi Awal di koordinat bandung */
+    var koordinat_awal = new GLatLng(bandung_lat,bandung_lng);
+    var zoom_awal      = 13;
+    map.setCenter(koordinat_awal,zoom_awal);
+     
+    /* Menambah Event Listener ketika
+    * user melakukan drag pada map
+    */
+    GEvent.addListener(map, "moveend", function() {
+     /* Mengambil Koordinat Sekarang */
+     var center = map.getCenter();
+     
+     /* Update Field config Latitude dan Longitude */
+     document.getElementById('config_latitude').value = center.lat();
+     document.getElementById('config_longitude').value = center.lng();
+    });
+  }
+}
+        
+/*]]>*/
+</script>
+
+<!-- Script Untuk Menghitung Waktu Sholat -->
+<script type="text/javascript">
+/*<![CDATA[*/
+  
+
+/* Fungsi Untuk meng Update Waktu Sholat dengan
+ * Menggunakan library WaktuSholat dari Unikom Center
+ */
+function updateWaktuSholat(){
+  var latitude   = parseFloat(document.getElementById('config_latitude').value);
+  var longitude  = parseFloat(document.getElementById('config_longitude').value);
+  var tahun      = parseInt(document.getElementById('config_thn').value);
+  var bulan      = parseInt(document.getElementById('config_bln').value);
+  var tanggal    = parseInt(document.getElementById('config_tgl').value);
+  var timezone   = parseInt(document.getElementById('config_timezone').value);
+  
+  // Buat Object dari Class waktuSholat
+  var waktuSholatObj = new waktuSholat();
+  
+  // Set Latitude dan Longitude
+  waktuSholatObj.setLatLng(latitude,longitude);
+  
+  /* Ambil Waktu Sholat untuk hari yang dimaksud
+   *
+   * result akan berisi objek dengan key nama waktu sholat
+   * seperti berikut ini:
+   *
+   * result = {
+   *   zuhur:'STRING',
+   *   ashar:'STRING',
+   *   maghrib:'STRING',
+   *   isya:'STRING',
+   *   shubuh:'STRING',
+   * };
+   */
+  var result = waktuSholatObj.get(tahun,bulan,tanggal,timezone);
+  
+  // Loop result dan masukan output ke dalam input text
+  for (var waktu in result){
+    document.getElementById('waktu_'+waktu).value = result[waktu];
+  }
+}
+
+/* Fungsi yang akan dipanggil ketika document.onload */
+function initWaktuSholat(){
+  buatMap();
+  updateWaktuSholat();
+};
+
+/*]]>*/
+</script>
+
+</body>
+</html>

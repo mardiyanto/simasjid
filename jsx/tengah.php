@@ -1072,5 +1072,33 @@ elseif($aksi=='agenda'){
             </div></div></div></div></div></div>
         ";
         }
-        
+elseif($aksi=='editwaktusholat'){
+            $tebaru=mysqli_query($koneksi," SELECT * FROM waktusholat WHERE id_sholat='1'");
+            $t=mysqli_fetch_array($tebaru);
+            echo"
+            <div class='row'>
+                            <div class='col-lg-12'>
+                                <div class='panel panel-default'>
+                                    <div class='panel-heading'>INFORMASI GALERI
+                                    </div>
+                                    <div class='panel-body'>
+            <form id='form1' method='post' enctype='multipart/form-data' action='master/galleri.php?act=editgalleri&gb=$t[gambar]&id_g=$t[id_galeri]'>
+                   <div class='form-grup'>
+                   <img src='../foto/galleri/$t[gambar]' width='215' height='160' class='box-shadow2'/><br />
+                   <label>Gambar</label>
+                    <input type='file' size='50'name='gambar'/><br>
+                    <label>Judul</label>
+                    <input type='text' class='form-control'  name='jd' value='$t[judul]'/><br>
+                    <label>Isi</label>
+                   <textarea id='text-ckeditor' class='form-control' name='isi'>$t[keterangan]</textarea></br>
+                    <script>CKEDITOR.replace('text-ckeditor');</script>		
+                        <div class='modal-footer'>
+                                                        <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                                                        <button type='submit' class='btn btn-primary'>Save </button>
+                                                    </div>
+                    </div>
+                </form>
+                </div></div></div></div></div></div>
+            ";
+}  
 ?>
