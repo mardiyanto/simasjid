@@ -822,9 +822,9 @@ elseif($aksi=='agenda'){
                               <td>$t[tgl_selesai]</td>
                              <td>
                              
-                             <a href='index.php?aksi=editagenda&id_a=$t[id_agenda]' title='Edit' class='icon-edit'></a>&nbsp;
-                    <a href='index.php?aksi=lihat_agenda&id=$t[id_agenda]' title='Lihat' class='icon-eye-open'></a>&nbsp;
-                    <a href='master/agenda.php?id_a=$t[id_agenda]&act=hapus' onclick=\"return confirm ('Apakah yakin ingin menghapus $t[tema] ?')\" title='Hapus' class='icon-trash '></a>
+                             <a href='index.php?aksi=editagenda&id_a=$t[id_agenda]' title='Edit' class='icon-edit'>edit</a>&nbsp;
+                    <a href='index.php?aksi=lihat_agenda&id=$t[id_agenda]' title='Lihat' class='icon-eye-open'>lihat</a>&nbsp;
+                    <a href='master/agenda.php?id_a=$t[id_agenda]&act=hapus' onclick=\"return confirm ('Apakah yakin ingin menghapus $t[tema] ?')\" title='Hapus' class='icon-trash '>hapus</a>
                 
                           
                     </td>
@@ -853,13 +853,13 @@ elseif($aksi=='agenda'){
             
             <label>Tanggal Mulai</label>
         
-          <input type='text' class='form-control' id='datepicker' name='tglm' required/>
+          <input type='date' class='form-control' id='datepicker' name='tglm' required/>
         
             <label>Tanggal Selesai</label>
-           <input type='text' class='form-control' id='datepicker1' name='tgls' required/>
+           <input type='date' class='form-control' id='datepicker1' name='tgls' required/>
             
             <label>Jam</label>
-            <input class='form-control timepicker-default' type='text' name='jm' required/>
+            <input class='form-control timepicker-default' type='time' name='jm' required/>
             
             <label>Tempat</label>
             <input class='form-control' placeholder='Masukan Tema' name='tp' required>

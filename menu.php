@@ -25,7 +25,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
         <a href="index.php" class="navbar-brand d-flex align-items-center">
-            <h1 class="m-0"><?=$k[nama]?></h1>
+            <h2 class="m-0"><?=$k[nama]?></h2>
         </a>
         <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -33,8 +33,23 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.php" class="nav-item nav-link active">Beranda</a>
-                <a href="xxx.php?module=tentang&id_profil=1" class="nav-item nav-link">Tentang Kami</a>
-              
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tentang Kami</a>
+                    <div class="dropdown-menu bg-light m-0">
+                    <a href="xxx.php?module=tentang&id_profil=1" class='dropdown-item'>Tentang Kami</a>
+                     <?php $profil = mysqli_query($koneksi, "SELECT * FROM profil WHERE status_profil = 'halpro'");
+if (mysqli_num_rows($profil) > 0) {
+    while ($t = mysqli_fetch_array($profil)) {
+        echo "<a href='xxx.php?module=tentang&id_profil=$t[id_profil]' class='dropdown-item'>$t[alias]</a>";
+        // Tambahkan kode lainnya sesuai kebutuhan
+    }
+} else {
+    // Tidak ada data profil dengan status_profil "hal"
+    // Tidak ada tautan yang ditampilkan
+} ?>
+                    
+                    </div>
+                </div>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Amal</a>
                     <div class="dropdown-menu bg-light m-0">
@@ -65,7 +80,7 @@ $no++;?>
                     </div>
                 </div>
                 <a href="xxx.php?module=galery" class="nav-item nav-link">Galery</a>
-               
+                <a href="xxx.php?module=agenda" class="nav-item nav-link">Agenda</a>
                 <a href="xxx.php?module=hubungi" class="nav-item nav-link">Hubungi Kami</a>
             </div>
             <div class="border-start ps-4 d-none d-lg-block">

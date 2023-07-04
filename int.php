@@ -385,6 +385,48 @@ elseif ($_GET[module]=='galery'){ ?>
         <!-- Room End -->
 
 <?php }
+elseif ($_GET[module]=='agenda'){ ?>
+     <div class="container-xxl py-5">
+            <div class="container">
+            <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="section-title bg-white text-center text-primary px-3">Agenda</p>
+                <h1 class="mb-5"><?php echo"$k[nama]";?></h1>
+            </div>
+                <div class="row g-4">
+                    <?php $tebaru=mysqli_query($koneksi," SELECT * FROM agenda ORDER BY id_agenda DESC ");
+    while ($t=mysqli_fetch_array($tebaru)){ ?>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                            <img class="img-fluid" src="img/room-1.jpg" alt="">
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"><?php echo"$t[tgl_posting]";?></small>
+                            </div>
+                            <div class="p-4 mt-2">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0"><?php echo"$t[tema]";?></h5>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>Mulai :<?php echo"$t[tgl_mulai]";?></small>
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>Selesai :<?php echo"$t[tgl_selesai]";?></small>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>Waktu mulai : <?php echo"$t[jam]";?></small>
+                                    <small><i class="fa fa-wifi text-primary me-2"></i><?php echo"$t[pengirim]";?></small>
+                                </div>
+                                <p class="text-body mb-3"><?php echo"$t[isi_agenda]";?></p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <?php  }?>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Room End -->
+  
+  <?php }
+
 elseif ($_GET[module]=='kritik'){
 	  mysqli_query($koneksi,"INSERT INTO kritik (nama, email, pesan) 
              VALUES('$_POST[nama]',
@@ -393,5 +435,6 @@ elseif ($_GET[module]=='kritik'){
 echo "<script>window.alert('terimakasih sudah mengunjungi aplikasi kami..... ');
         window.location=('index.php')</script>";
 }
+
 ?>
 
