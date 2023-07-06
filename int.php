@@ -426,6 +426,27 @@ elseif ($_GET[module]=='agenda'){ ?>
         <!-- Room End -->
   
   <?php }
+elseif ($_GET[module]=='jadwal'){ ?>
+     <div class="container-xxl py-5">
+            <div class="container">
+            <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="section-title bg-white text-center text-primary px-3">Jadwal Sholat</p>
+                <h1 class="mb-5"><?php echo"$k[nama]";?></h1>
+            </div>
+                <div class="row g-4">
+            
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <p style="text-align: center;"><iframe src="https://www.jadwalsholat.org/jadwal-sholat/monthly.php?id=308" height="940" width="430" frameborder="0"></iframe><a href="https://www.jadwalsholat.org" target="_blank"><img class="aligncenter" style="text-align: center;" alt="jadwal-sholat" src="https://www.jadwalsholat.org/wp-content/uploads/2013/09/jadwal-sholat.png" width="81" height="18" /></a></p>
+                        </div>
+                    </div>
+            
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Room End -->
+  
+  <?php }
 
 elseif ($_GET[module]=='kritik'){
 	  mysqli_query($koneksi,"INSERT INTO kritik (nama, email, pesan) 

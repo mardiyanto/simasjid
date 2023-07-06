@@ -1,0 +1,1 @@
+<a href=”https://www.jadwalsholat.org” target=”_blank”><img class=”aligncenter” style=”text-align: center;” alt=”jadwal-sholat” src=”https://www.jadwalsholat.org/wp-content/uploads/2013/09/jadwal-sholat.png” width=”81″ height=”18″ /></a>
