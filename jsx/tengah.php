@@ -997,10 +997,9 @@ elseif($aksi=='agenda'){
                                     <td valign='top'>$t[judul]</td>
                                     <td  valign='top' align='center'><img alt='galeri'  src='../foto/galleri/$t[gambar]' width=80 height=60 class='box-shadow2'/></td>
                                     <td  valign='top'>$t[keterangan]</td>
-                                    <td>
-                            
-                        <a href='index.php?aksi=editgaleri&id_g=$t[id_galeri]' title='Edit' class='icon-edit'></a>&nbsp;
-                        <a href='master/galleri.php?id_g=$t[id_galeri]&act=hapus&gbr=$t[gambar]' onclick=\"return confirm ('Apakah yakin ingin menghapus $t[judul] ?')\" title='Hapus' class='icon-trash'>
+                                    <td>                          
+                        <a href='index.php?aksi=editgaleri&id_g=$t[id_galeri]' title='Edit' class='icon-edit'>edit </a>&nbsp;
+                        <a href='master/galleri.php?id_g=$t[id_galeri]&act=hapus&gbr=$t[gambar]' onclick=\"return confirm ('Apakah yakin ingin menghapus $t[judul] ?')\" title='Hapus' class='icon-trash'>hapus
                         
                                 </td></tr>";
                                  }						
@@ -1082,7 +1081,7 @@ elseif($aksi=='editwaktusholat'){
                                     <div class='panel-heading'>INFORMASI GALERI
                                     </div>
                                     <div class='panel-body'>
-            <form id='form1' method='post' enctype='multipart/form-data' action='master/galleri.php?act=editgalleri&gb=$t[gambar]&id_g=$t[id_galeri]'>
+            <form id='form1' method='post' enctype='multipart/form-data' action=''>
                    <div class='form-grup'>
                    <img src='../foto/galleri/$t[gambar]' width='215' height='160' class='box-shadow2'/><br />
                    <label>Gambar</label>

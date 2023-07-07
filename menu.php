@@ -37,6 +37,7 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tentang Kami</a>
                     <div class="dropdown-menu bg-light m-0">
                     <a href="xxx.php?module=tentang&id_profil=1" class='dropdown-item'>Tentang Kami</a>
+                    <a href="xxx.php?module=jadwal" class='dropdown-item'>Jadwal</a>
                      <?php $profil = mysqli_query($koneksi, "SELECT * FROM profil WHERE status_profil = 'halpro'");
 if (mysqli_num_rows($profil) > 0) {
     while ($t = mysqli_fetch_array($profil)) {
